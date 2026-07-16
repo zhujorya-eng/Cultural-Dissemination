@@ -21,11 +21,44 @@
 - 互动短视频 · 多语种字幕 · 人物故事动画
 - 幕后纪录片 · VR 数字剧场 · 沉浸式戏曲体验
 
+## VR 数字剧场（可运行）
+
+基于 **Three.js + WebXR** 的沉浸式昆曲虚拟戏台，支持桌面浏览与 VR 头显。
+
+### 快速启动
+
+```bash
+cd vr-theater
+npm install
+npm run dev
+```
+
+浏览器打开 `http://localhost:5173` 即可体验。
+
+### 功能
+
+- 3D 古戏台：红柱金檐、幕布、一桌二椅、水袖演员
+- 三出折子戏场景：游园惊梦 / 长亭送别 / 小宴传杯
+- 多语种字幕：中英双语 + 情感标签
+- WebXR VR 模式：点击「进入 VR」或页面 VR 按钮（需 Quest 等 WebXR 设备）
+- 交互：拖拽旋转、滚轮缩放、空格切换幕布
+
+### 生产部署
+
+```bash
+cd vr-theater && npm run build
+# 静态文件输出至 vr-theater/dist/
+```
+
 ## 目录结构
 
 ```
 .
 ├── README.md
-└── docs/
-    └── 数字昆曲-价值提炼与产品设计.md
+├── docs/
+│   └── 数字昆曲-价值提炼与产品设计.md
+└── vr-theater/          # WebXR VR 剧场
+    ├── index.html
+    ├── src/
+    └── dist/            # 构建产物
 ```

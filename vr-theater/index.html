@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数字昆曲 · VR 数字剧场</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="loading">
+      <div class="loading-inner">
+        <div class="loading-icon">昆</div>
+        <p>正在搭建虚拟戏台…</p>
+      </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <div id="hud" class="hidden">
+      <header class="hud-top">
+        <div class="brand">
+          <span class="brand-cn">数字昆曲</span>
+          <span class="brand-en">Digital Kunqu VR Theater</span>
+        </div>
+        <div class="hud-actions">
+          <button id="btn-vr" class="btn primary" type="button">进入 VR</button>
+          <button id="btn-lang" class="btn" type="button">EN</button>
+          <button id="btn-sub" class="btn active" type="button">字幕</button>
+        </div>
+      </header>
+
+      <div id="subtitle-panel" class="subtitle-panel">
+        <div class="emotion-tag" id="emotion-tag">Longing · 思念</div>
+        <p class="subtitle-cn" id="subtitle-cn"></p>
+        <p class="subtitle-en" id="subtitle-en"></p>
+        <p class="subtitle-note" id="subtitle-note"></p>
+      </div>
+
+      <footer class="hud-bottom">
+        <div class="scene-tabs" id="scene-tabs">
+          <button class="tab active" data-scene="0" type="button">游园惊梦</button>
+          <button class="tab" data-scene="1" type="button">长亭送别</button>
+          <button class="tab" data-scene="2" type="button">小宴传杯</button>
+        </div>
+        <div class="controls-hint">
+          <span>拖拽旋转视角</span>
+          <span>滚轮缩放</span>
+          <span>空格 切换幕布</span>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
