@@ -1,0 +1,27 @@
+{
+  "experimentId": "kunqu-vr-2026-q1",
+  "variantLabel": "G8-interactive-participatory-guided",
+  "narrative": "interactive",
+  "immersion": "participatory",
+  "interpretation": "npc-guided",
+  "modules": {
+    "M01_mr_intro": true,
+    "M02_pipa": true,
+    "M03_tea_house": true,
+    "M04_duet": true,
+    "M05_digital_stage": true,
+    "M06_mr_outro": true,
+    "cultural_npc": true,
+    "narrative_branching": true
+  },
+  "sceneOrder": "dynamic",
+  "branchNodes": [
+    { "id": "entry_choice", "options": ["learn_opera", "watch_show", "garden_stroll"] },
+    { "id": "tea_house_backstage", "trigger": "interaction_score >= 0.7" },
+    { "id": "garden_duet", "trigger": "user_opt_in" }
+  ],
+  "culturalNpc": {
+    "languages": ["zh-CN", "en-US"],
+    "topicsPerScene": 3
+  }
+}

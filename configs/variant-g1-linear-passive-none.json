@@ -1,0 +1,18 @@
+{
+  "experimentId": "kunqu-vr-2026-q1",
+  "variantLabel": "G1-linear-passive-no-guide",
+  "narrative": "linear",
+  "immersion": "passive",
+  "interpretation": "none",
+  "modules": {
+    "M01_mr_intro": true,
+    "M02_pipa": false,
+    "M03_tea_house": true,
+    "M04_duet": false,
+    "M05_digital_stage": true,
+    "M06_mr_outro": true,
+    "cultural_npc": false,
+    "narrative_branching": false
+  },
+  "sceneOrder": ["opera_garden", "tea_house", "classical_garden", "digital_theater"]
+}
