@@ -1,0 +1,294 @@
+{
+  "n_docs": 105000,
+  "platforms": [
+    "Facebook",
+    "Instagram",
+    "Reddit",
+    "TripAdvisor",
+    "Twitter",
+    "YouTube"
+  ],
+  "date_range": "2022-01-01 00:26:00 ~ 2025-12-31 23:44:00",
+  "corpus_note": "合成海外社交风格英文语料（主题覆盖江苏文化核心意象），用于可复现的文本挖掘流程与热点/情感识别。",
+  "top_themes": [
+    {
+      "theme": "淮扬菜/苏菜",
+      "count": 16864,
+      "share": 0.1606095238095238,
+      "engagement_share": 0.16039583229235818
+    },
+    {
+      "theme": "古典园林",
+      "count": 14895,
+      "share": 0.14185714285714285,
+      "engagement_share": 0.14280573143078765
+    },
+    {
+      "theme": "水乡古镇",
+      "count": 13582,
+      "share": 0.12935238095238094,
+      "engagement_share": 0.1315084741326595
+    },
+    {
+      "theme": "南京历史文化",
+      "count": 12582,
+      "share": 0.11982857142857142,
+      "engagement_share": 0.11982456891731445
+    },
+    {
+      "theme": "江南生活美学",
+      "count": 10597,
+      "share": 0.10092380952380953,
+      "engagement_share": 0.10183711296543486
+    },
+    {
+      "theme": "丝绸与苏绣",
+      "count": 9450,
+      "share": 0.09,
+      "engagement_share": 0.08842756835340333
+    },
+    {
+      "theme": "昆曲艺术",
+      "count": 8264,
+      "share": 0.0787047619047619,
+      "engagement_share": 0.07708748236290655
+    },
+    {
+      "theme": "大运河文化",
+      "count": 7387,
+      "share": 0.07035238095238096,
+      "engagement_share": 0.0703639725039795
+    },
+    {
+      "theme": "节庆与非遗",
+      "count": 6224,
+      "share": 0.059276190476190475,
+      "engagement_share": 0.05940220662940571
+    },
+    {
+      "theme": "文旅体验与服务",
+      "count": 5155,
+      "share": 0.049095238095238095,
+      "engagement_share": 0.04834705041175029
+    }
+  ],
+  "lda_topics": [
+    {
+      "topic_id": 3,
+      "top_terms": "garden, heritage, jiangsu, pond, comparing, stand, stand factually, factually, site, heritage site, planning, include",
+      "doc_share": 0.1622
+    },
+    {
+      "topic_id": 4,
+      "top_terms": "jiangsu, photogenic, blew, refined, refined photogenic, culture, canal, house, tea, tea house, focus, overview",
+      "doc_share": 0.146525
+    },
+    {
+      "topic_id": 6,
+      "top_terms": "jiangnan, aesthetic, jiangnan aesthetic, show, show jiangnan, encounter, stunning, stunning encounter, culture, nanjing, jiangsu, city",
+      "doc_share": 0.13505
+    },
+    {
+      "topic_id": 2,
+      "top_terms": "jiangsu, silk, opera, embroidery, culture, heritage, intangible, festival, folk, lantern, unforgettable, jiangsu silk",
+      "doc_share": 0.12545
+    },
+    {
+      "topic_id": 0,
+      "top_terms": "authentic especially, especially, authentic, overseas, explained, ticket, guide, first, timer, guide explained, context first, context",
+      "doc_share": 0.120175
+    },
+    {
+      "topic_id": 5,
+      "top_terms": "canal, jiangsu, boat, bridge, stone, museum, concise informative, text, informative, concise, museum text, misty",
+      "doc_share": 0.11285
+    },
+    {
+      "topic_id": 7,
+      "top_terms": "cultural, soft, soft power, power, charming immersive, immersive, real, cultural soft, power real, charming, fish, fish dish",
+      "doc_share": 0.1038
+    },
+    {
+      "topic_id": 1,
+      "top_terms": "hospitality, local, elegant, warm local, local hospitality, warm, water, town, water town, jiangnan, jiangnan water, tongli water",
+      "doc_share": 0.09395
+    }
+  ],
+  "top_tfidf_terms": [
+    "jiangsu",
+    "culture",
+    "garden",
+    "jiangnan",
+    "canal",
+    "photogenic",
+    "local",
+    "jiangnan aesthetic",
+    "aesthetic",
+    "elegant",
+    "unforgettable",
+    "jiangsu culture",
+    "highlight jiangsu",
+    "highlight",
+    "cultural",
+    "museum",
+    "heritage",
+    "hospitality",
+    "lasting",
+    "impression",
+    "lasting impression",
+    "refined photogenic",
+    "refined",
+    "blew",
+    "silk",
+    "authentic",
+    "authentic especially",
+    "overseas",
+    "especially",
+    "local hospitality",
+    "warm local",
+    "warm",
+    "stunning",
+    "show jiangnan",
+    "encounter",
+    "show",
+    "stunning encounter",
+    "power",
+    "power real",
+    "charming"
+  ],
+  "sentiment_overview": {
+    "positive": 0.6710571428571429,
+    "neutral": 0.21452380952380953,
+    "negative": 0.11441904761904761
+  },
+  "mean_compound": 0.31210124190476185,
+  "theme_sentiment": [
+    {
+      "theme": "节庆与非遗",
+      "negative": 0.1005784061696658,
+      "neutral": 0.11118251928020566,
+      "positive": 0.7882390745501285,
+      "mean_compound": 0.4519271368894601
+    },
+    {
+      "theme": "淮扬菜/苏菜",
+      "negative": 0.09647770398481974,
+      "neutral": 0.16318785578747627,
+      "positive": 0.740334440227704,
+      "mean_compound": 0.3721514053605313
+    },
+    {
+      "theme": "丝绸与苏绣",
+      "negative": 0.07809523809523809,
+      "neutral": 0.21544973544973545,
+      "positive": 0.7064550264550264,
+      "mean_compound": 0.3534278412698413
+    },
+    {
+      "theme": "昆曲艺术",
+      "negative": 0.09825750242013553,
+      "neutral": 0.21200387221684414,
+      "positive": 0.6897386253630203,
+      "mean_compound": 0.33913651984511134
+    },
+    {
+      "theme": "大运河文化",
+      "negative": 0.10031135779071342,
+      "neutral": 0.208068227968052,
+      "positive": 0.6916204142412345,
+      "mean_compound": 0.3383155408149452
+    },
+    {
+      "theme": "江南生活美学",
+      "negative": 0.0816268755308106,
+      "neutral": 0.2534679626309333,
+      "positive": 0.6649051618382561,
+      "mean_compound": 0.32744108710012265
+    },
+    {
+      "theme": "古典园林",
+      "negative": 0.09855656260490098,
+      "neutral": 0.24625713326619672,
+      "positive": 0.6551863041289023,
+      "mean_compound": 0.30757602551191676
+    },
+    {
+      "theme": "南京历史文化",
+      "negative": 0.13813384199650294,
+      "neutral": 0.24558893657606104,
+      "positive": 0.616277221427436,
+      "mean_compound": 0.2516781036401208
+    },
+    {
+      "theme": "水乡古镇",
+      "negative": 0.15137682226476218,
+      "neutral": 0.23634221764099544,
+      "positive": 0.6122809600942424,
+      "mean_compound": 0.24423462671182447
+    },
+    {
+      "theme": "文旅体验与服务",
+      "negative": 0.26052376333656646,
+      "neutral": 0.2137730358874879,
+      "positive": 0.5257032007759457,
+      "mean_compound": 0.0979968380213385
+    }
+  ],
+  "platform_sentiment": [
+    {
+      "platform": "TripAdvisor",
+      "negative": 0.11538764266036994,
+      "neutral": 0.16922471467926015,
+      "positive": 0.7153876426603699,
+      "mean_compound": 0.364310090515545
+    },
+    {
+      "platform": "Facebook",
+      "negative": 0.11602472658107466,
+      "neutral": 0.16214931050879697,
+      "positive": 0.7218259629101283,
+      "mean_compound": 0.3518503724837534
+    },
+    {
+      "platform": "YouTube",
+      "negative": 0.11251796591609062,
+      "neutral": 0.22161385257682567,
+      "positive": 0.6658681815070837,
+      "mean_compound": 0.30536325371295603
+    },
+    {
+      "platform": "Twitter",
+      "negative": 0.11217524197656648,
+      "neutral": 0.22479198505688572,
+      "positive": 0.6630327729665478,
+      "mean_compound": 0.30464485311597894
+    },
+    {
+      "platform": "Reddit",
+      "negative": 0.11436031331592689,
+      "neutral": 0.22750217580504786,
+      "positive": 0.6581375108790253,
+      "mean_compound": 0.29919391644908616
+    },
+    {
+      "platform": "Instagram",
+      "negative": 0.11825857519788918,
+      "neutral": 0.22517150395778365,
+      "positive": 0.6565699208443272,
+      "mean_compound": 0.29629764116094987
+    }
+  ],
+  "findings": [
+    "讨论量最高的文化热点为「淮扬菜/苏菜」，互动加权热度领先主题为「淮扬菜/苏菜」。",
+    "整体情感以正向为主，正向占比约 67.1%，负向约 11.4%。",
+    "情感最积极主题为「节庆与非遗」（compound=0.452），相对偏负主题为「文旅体验与服务」（compound=0.098）。",
+    "平台层面，TripAdvisor 的平均情感分最高（0.364），文旅体验与拥挤、导览服务相关讨论是负向情绪的主要来源。",
+    "美食、园林、丝绸刺绣等可视/可体验文化符号更易触发海外受众的正向传播。"
+  ],
+  "evaluation": {
+    "seed_label_agreement": 0.6834,
+    "n_eval": 105000
+  },
+  "figures_dir": "outputs/figures",
+  "tables_dir": "outputs/tables"
+}

@@ -15,7 +15,6 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
-# 主题标签 -> 关注热点维度
 THEMES = {
     "classical_gardens": {
         "label_zh": "古典园林",
@@ -25,7 +24,15 @@ THEMES = {
             "Lingering Garden",
             "classical Chinese garden",
             "rockery and ponds",
-            "UNESCO World Heritage",
+            "UNESCO garden heritage",
+        ],
+        "motifs": [
+            "moon gates",
+            "white walls and dark tiles",
+            "scholar rocks",
+            "winding corridors",
+            "lotus ponds",
+            "garden landscaping philosophy",
         ],
         "weight": 0.14,
     },
@@ -37,7 +44,15 @@ THEMES = {
             "Peony Pavilion",
             "traditional Chinese opera",
             "Jiangsu intangible heritage",
+            "water sleeve performance",
+        ],
+        "motifs": [
             "elegant singing",
+            "flute accompaniment",
+            "classical costumes",
+            "stage choreography",
+            "UNESCO listed opera",
+            "poetic libretto",
         ],
         "weight": 0.08,
     },
@@ -48,8 +63,16 @@ THEMES = {
             "Jiangsu food",
             "Yangzhou fried rice",
             "lion's head meatballs",
-            "sweet and savory flavors",
             "Nanjing salted duck",
+            "sweet and savory flavors",
+        ],
+        "motifs": [
+            "knife skills",
+            "delicate plating",
+            "freshwater fish dishes",
+            "tea-house dim sum",
+            "seasonal ingredients",
+            "banquet culture",
         ],
         "weight": 0.16,
     },
@@ -63,6 +86,14 @@ THEMES = {
             "boat rides",
             "ancient alleys",
         ],
+        "motifs": [
+            "misty morning canals",
+            "riverside houses",
+            "lantern-lit evenings",
+            "local handicraft stalls",
+            "stone arch bridges",
+            "slow boat travel",
+        ],
         "weight": 0.13,
     },
     "grand_canal": {
@@ -74,6 +105,14 @@ THEMES = {
             "riverside culture",
             "Jiangsu canal cities",
             "historic waterway",
+        ],
+        "motifs": [
+            "cargo history",
+            "canal museums",
+            "wharf architecture",
+            "shipping routes",
+            "urban waterfront revival",
+            "UNESCO canal corridor",
         ],
         "weight": 0.07,
     },
@@ -87,6 +126,14 @@ THEMES = {
             "Jiangsu silk",
             "handcrafted silk art",
         ],
+        "motifs": [
+            "fine needlework",
+            "silk threads",
+            "floral patterns",
+            "museum textile exhibits",
+            "artisan demonstrations",
+            "luxury silk scarves",
+        ],
         "weight": 0.09,
     },
     "nanjing_heritage": {
@@ -98,6 +145,14 @@ THEMES = {
             "city wall of Nanjing",
             "six dynasties culture",
             "Sun Yat-sen Mausoleum",
+        ],
+        "motifs": [
+            "imperial tombs",
+            "city wall cycling",
+            "Qinhuai night cruise",
+            "republican architecture",
+            "museum collections",
+            "historical storytelling",
         ],
         "weight": 0.12,
     },
@@ -111,6 +166,14 @@ THEMES = {
             "poetic lifestyle",
             "Wuxi Taihu scenery",
         ],
+        "motifs": [
+            "ink wash vibes",
+            "slow living",
+            "calligraphy corners",
+            "lakeside walks",
+            "seasonal poetry",
+            "courtyard cafes",
+        ],
         "weight": 0.10,
     },
     "festivals_heritage": {
@@ -123,6 +186,14 @@ THEMES = {
             "folk performance",
             "temple fair",
         ],
+        "motifs": [
+            "festive lanterns",
+            "folk music",
+            "community rituals",
+            "seasonal celebrations",
+            "handmade decorations",
+            "local parade",
+        ],
         "weight": 0.06,
     },
     "tourism_experience": {
@@ -132,8 +203,16 @@ THEMES = {
             "tourist experience",
             "guided tour",
             "museum visit",
-            "hospitality",
+            "hospitality service",
             "cultural trip planning",
+        ],
+        "motifs": [
+            "ticket lines",
+            "English signage",
+            "tour pacing",
+            "visitor centers",
+            "translation apps",
+            "itinerary logistics",
         ],
         "weight": 0.05,
     },
@@ -166,71 +245,48 @@ REGIONS = [
     "Netherlands",
 ]
 
-# 情感模板：positive / neutral / negative
-SENTIMENT_TEMPLATES = {
-    "positive": [
-        "Absolutely loved discovering {kw} in Jiangsu — breathtaking and unforgettable!",
-        "Just saw {kw} and I'm speechless. Jiangsu culture is so refined.",
-        "Highly recommend experiencing {kw}. One of the highlights of my China trip.",
-        "{kw} exceeded expectations. The craftsmanship and atmosphere are incredible.",
-        "Fell in love with {kw}. Jiangsu's cultural soft power is real.",
-        "As a visitor from overseas, {kw} felt authentic, warm and deeply aesthetic.",
-        "Sharing my favorite moment with {kw} — pure Jiangnan vibes!",
-        "Amazing documentation of {kw}. Makes me want to book a Jiangsu itinerary ASAP.",
-        "The details of {kw} are stunning. Such elegance and historical depth.",
-        "Best cultural experience this year: {kw} in Jiangsu. 10/10 would return.",
-    ],
-    "neutral": [
-        "Visited {kw} during my Jiangsu trip. Crowded but informative.",
-        "Reading about {kw} before going to Jiangsu — any tips from travelers?",
-        "Documentary on {kw} explains the history well. Neutral overview of Jiangsu culture.",
-        "Comparing {kw} with other Chinese heritage sites. Interesting similarities.",
-        "Local guide talked about {kw}. Useful context for first-time visitors.",
-        "Photo series featuring {kw}. Looks photogenic, wondering about ticket prices.",
-        "Thread: thoughts on {kw} as part of Jiangsu cultural tourism?",
-        "Saw a short clip about {kw}. Planning to include it if time allows.",
-        "Museum panel on {kw} was factual and concise.",
-        "Looking for English resources on {kw} and Jiangsu intangible heritage.",
-    ],
-    "negative": [
-        "Disappointed by overcrowding around {kw}. Hard to appreciate the culture.",
-        "Expected more explanation in English for {kw}. Felt lost as a foreign visitor.",
-        "Commercialization around {kw} was a bit much. Less authentic than hoped.",
-        "Long queues and unclear signage near {kw} ruined part of the experience.",
-        "Tour felt rushed at {kw}. Barely had time to understand the history.",
-        "Maintenance issues near {kw} were noticeable. Hope they improve preservation.",
-        "Overpriced souvenirs linked to {kw}. Culture deserves better presentation.",
-        "Audio guide for {kw} was outdated. Needs better storytelling for overseas guests.",
-        "Too noisy around {kw} for such a refined cultural site.",
-        "Mixed feelings about {kw} — beautiful idea, uneven visitor management.",
-    ],
-}
+POSITIVE_FRAMES = [
+    "Absolutely loved {kw} in Jiangsu — {motif} made it unforgettable.",
+    "{kw} blew me away. The {motif} feels so refined and photogenic.",
+    "Highly recommend {kw}. {motif} is a highlight of Jiangsu culture.",
+    "Fell for {kw}: elegant {motif} and warm local hospitality.",
+    "As an overseas visitor, {kw} felt authentic — especially the {motif}.",
+    "Stunning encounter with {kw}. {motif} shows Jiangnan aesthetics at its best.",
+    "Best stop on my Jiangsu trip was {kw}; {motif} left a lasting impression.",
+    "Charming and immersive: {kw} plus {motif}. Cultural soft power is real.",
+]
+
+NEUTRAL_FRAMES = [
+    "Visited {kw} in Jiangsu. {motif} was interesting; crowds were moderate.",
+    "Reading about {kw} and {motif} before travel — tips welcome.",
+    "Documentary covers {kw} with focus on {motif}. Useful overview.",
+    "Comparing {kw} with other heritage sites; {motif} stands out factually.",
+    "Guide explained {kw} and {motif}. Good context for first-timers.",
+    "Photo notes on {kw}: {motif} looks photogenic, checking ticket info.",
+    "Planning whether to include {kw}. Curious about {motif} timing.",
+    "Museum text on {kw} mentions {motif}. Concise and informative.",
+]
+
+NEGATIVE_FRAMES = [
+    "Disappointed by overcrowding around {kw}. The {motif} was frustrating and hard to enjoy.",
+    "Poor English guidance at {kw} left me confused; {motif} felt badly explained.",
+    "Hate how commercial {kw} has become. The {motif} felt fake and overpriced.",
+    "Terrible queues at {kw} ruined the visit; {motif} was rushed and stressful.",
+    "Sad to see poor maintenance near {kw}. The {motif} looked neglected.",
+    "Worst souvenir experience near {kw}. The {motif} presentation was disappointing.",
+    "Too noisy and chaotic at {kw}; couldn't appreciate {motif} at all. Annoying.",
+    "Bad visitor management at {kw}. The {motif} idea is nice but the execution failed.",
+]
 
 PLATFORM_PREFIX = {
-    "Twitter": ["Just posted:", "Hot take:", "Travel note:", "Culture thread:"],
-    "Reddit": [
-        "r/travel:",
-        "r/china:",
-        "Genuine question:",
-        "Trip report:",
-    ],
-    "Instagram": ["Photo dump:", "Today's muse:", "Captured this:", "Aesthetic stop:"],
-    "YouTube": [
-        "New vlog mention:",
-        "Comment section:",
-        "Watched a video on:",
-        "Creator spotlight:",
-    ],
-    "TripAdvisor": [
-        "Review:",
-        "Visitor tip:",
-        "Attraction note:",
-        "Day trip review:",
-    ],
-    "Facebook": ["Shared post:", "Group discussion:", "Travel album:", "Event share:"],
+    "Twitter": ["", "Travel note:", "Culture thread:", "Quick take:"],
+    "Reddit": ["r/travel —", "r/china —", "Trip report:", "Question:"],
+    "Instagram": ["", "Captured:", "Jiangnan diary:", ""],
+    "YouTube": ["Video comment:", "Watched a vlog on", "Creator note:", ""],
+    "TripAdvisor": ["Review:", "Visitor tip:", "Attraction note:", ""],
+    "Facebook": ["Shared:", "Group chat:", "Album note:", ""],
 }
 
-# 主题默认情感先验（海外受众整体偏正向，文旅服务与拥挤类负向略高）
 THEME_SENTIMENT_PRIORS = {
     "classical_gardens": (0.62, 0.28, 0.10),
     "kunqu_opera": (0.58, 0.32, 0.10),
@@ -243,6 +299,15 @@ THEME_SENTIMENT_PRIORS = {
     "festivals_heritage": (0.59, 0.30, 0.11),
     "tourism_experience": (0.45, 0.30, 0.25),
 }
+
+HASHTAGS = [
+    "",
+    " #JiangsuCulture",
+    " #VisitJiangsu",
+    " #Jiangnan",
+    " #ChinaTravel",
+    " #CulturalHeritage",
+]
 
 
 def _weighted_choice(rng: random.Random, weight_map: dict[str, float]) -> str:
@@ -262,19 +327,17 @@ def _make_text(
     theme: str,
     sentiment: str,
 ) -> tuple[str, str]:
-    kw = rng.choice(THEMES[theme]["keywords"])
-    template = rng.choice(SENTIMENT_TEMPLATES[sentiment])
-    body = template.format(kw=kw)
-    prefix = rng.choice(PLATFORM_PREFIX[platform])
-    extras = [
-        "",
-        " #JiangsuCulture",
-        " #VisitJiangsu",
-        " #Jiangnan",
-        " #ChinaTravel",
-        f" Hashtags: #{theme.replace('_', '')}",
-    ]
-    text = f"{prefix} {body}{rng.choice(extras)}".strip()
+    meta = THEMES[theme]
+    kw = rng.choice(meta["keywords"])
+    motif = rng.choice(meta["motifs"])
+    frames = {
+        "positive": POSITIVE_FRAMES,
+        "neutral": NEUTRAL_FRAMES,
+        "negative": NEGATIVE_FRAMES,
+    }[sentiment]
+    body = rng.choice(frames).format(kw=kw, motif=motif)
+    prefix = rng.choice(PLATFORM_PREFIX[platform]).strip()
+    text = f"{prefix} {body}{rng.choice(HASHTAGS)}".strip()
     return text, kw
 
 
@@ -318,7 +381,7 @@ def generate_corpus(
                 "focal_keyword": focal_kw,
                 "text": text,
                 "engagement": engagement,
-                "seed_sentiment": sentiment,  # 合成标签，仅用于评估；分析时以模型预测为准
+                "seed_sentiment": sentiment,
             }
         )
 
