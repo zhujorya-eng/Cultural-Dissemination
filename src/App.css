@@ -1,0 +1,30 @@
+.vr-button-wrap {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 20;
+}
+
+.vr-button-wrap button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.vr-button-wrap button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(201, 162, 39, 0.35);
+}
+
+.vr-button-wrap button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

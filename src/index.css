@@ -1,0 +1,62 @@
+:root {
+  --crimson: #8b1a1a;
+  --crimson-deep: #5c0f0f;
+  --gold: #c9a227;
+  --gold-light: #e8c84a;
+  --ink: #1a1410;
+  --paper: #f5efe0;
+  --jade: #2d6a4f;
+  --mist: rgba(245, 239, 224, 0.92);
+  --shadow: rgba(26, 20, 16, 0.55);
+  font-family: 'Noto Serif SC', 'Songti SC', serif;
+  line-height: 1.6;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.ui-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ui-layer > * {
+  pointer-events: auto;
+}
