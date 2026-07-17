@@ -1,4 +1,15 @@
+node_modules
+dist
+.DS_Store
+*.local
+*.tsbuildinfo
+
 # 采集输出（运行时生成）
 research/data/*.json
 research/data/*.csv
 !research/data/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
