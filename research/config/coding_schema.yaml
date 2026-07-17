@@ -1,0 +1,202 @@
+# 机器与人工联合编码模式
+
+coding_dimensions:
+  theme:
+    label: 作品主题
+    description: 作品呈现的核心江苏文化主题（可多选）
+    type: multi_select
+    auto_codable: true
+    options:
+      - id: heritage_opera
+        label: 戏曲曲艺（昆曲/淮剧等）
+        keywords: [kunqu, kun qu, opera, 昆曲, huai opera, yang opera, 戏曲]
+      - id: heritage_craft
+        label: 传统工艺（苏绣/云锦/紫砂等）
+        keywords: [embroidery, 苏绣, brocade, 云锦, yixing, zisha, 紫砂, craft]
+      - id: architecture_garden
+        label: 建筑园林古镇
+        keywords: [garden, 园林, ancient town, water town, 古镇, ming tomb, city wall]
+      - id: cuisine
+        label: 饮食文化
+        keywords: [cuisine, food, cooking, 美食, huaiyang, 淮扬, duck]
+      - id: history
+        label: 历史文化
+        keywords: [history, historical, 历史, dynasty, museum, 博物馆]
+      - id: nature_landscape
+        label: 自然风光
+        keywords: [lake, mountain, scenic, 风景, travel, tourism]
+      - id: contemporary_urban
+        label: 当代城市形象
+        keywords: [skyline, modern, city life, development, vlog]
+      - id: festival_event
+        label: 节庆活动
+        keywords: [festival, celebration, event, 节日, 元宵, 端午]
+      - id: education
+        label: 科普教育
+        keywords: [documentary, explain, learn, tutorial, 科普, 介绍]
+      - id: other
+        label: 其他
+        keywords: []
+
+  publisher_type:
+    label: 发布主体
+    description: 内容创作者/机构类型
+    type: single_select
+    auto_codable: true
+    options:
+      - id: official_tourism
+        label: 官方旅游/文化机构
+        signals: [tourism board, cultural bureau, discover, official, 文旅, visit]
+      - id: media_press
+        label: 媒体/纪录片
+        signals: [documentary, news, cctv, bbc, national geographic, channel]
+      - id: academic
+        label: 学术/教育
+        signals: [university, lecture, research, museum, professor]
+      - id: influencer
+        label: 个人博主/KOL
+        signals: [vlog, my trip, follow me, subscribe]
+      - id: artist_performer
+        label: 艺术家/表演者
+        signals: [performance, artist, opera house, troupe, 演出]
+      - id: diaspora
+        label: 海外华人/侨民
+        signals: [overseas chinese, diaspora, abroad, 华人]
+      - id: foreign_creator
+        label: 外国创作者
+        signals: [foreign, expat, reaction, first time]
+      - id: unknown
+        label: 待人工判定
+        signals: []
+
+  media_form:
+    label: 媒介形态
+    description: 内容呈现的技术与体裁形式
+    type: single_select
+    auto_codable: true
+    options:
+      - id: short_video
+        label: 短视频（<3min）
+        max_duration_sec: 180
+      - id: mid_video
+        label: 中视频（3-20min）
+        min_duration_sec: 180
+        max_duration_sec: 1200
+      - id: long_documentary
+        label: 长纪录片（>20min）
+        min_duration_sec: 1200
+      - id: live_clip
+        label: 直播切片
+        keywords: [live, stream, 直播]
+      - id: slideshow
+        label: 图片轮播/Reels
+        keywords: [slideshow, photo, carousel]
+      - id: audio_visual_performance
+        label: 舞台演出录像
+        keywords: [performance, stage, concert, 演出]
+
+  narrative_style:
+    label: 叙事方式
+    description: 内容组织与讲述策略
+    type: multi_select
+    auto_codable: true
+    options:
+      - id: experiential
+        label: 体验叙事（第一人称游历）
+        keywords: [my trip, i visited, walk through, vlog, 游记]
+      - id: explanatory
+        label: 解说科普
+        keywords: [explain, history of, what is, guide to, 介绍, 科普]
+      - id: performative
+        label: 表演展示
+        keywords: [performance, show, dance, sing, 表演]
+      - id: comparative
+        label: 对比/跨文化
+        keywords: [vs, compare, difference, foreigner, reaction]
+      - id: aesthetic
+        label: 审美意境
+        keywords: [beautiful, aesthetic, cinematic, 唯美, 意境]
+      - id: storytelling
+        label: 故事化叙事
+        keywords: [story, legend, tale, once upon, 传说]
+
+  cultural_explanation:
+    label: 文化解释
+    description: 是否及如何解释文化符号
+    type: single_select
+    auto_codable: true
+    options:
+      - id: none
+        label: 无解释（纯展示）
+        keywords: []
+      - id: implicit
+        label: 隐含解释（字幕/画外音少量说明）
+        min_explanation_signals: 1
+      - id: explicit_subtitle
+        label: 显性字幕解说
+        keywords: [subtitle, caption, 字幕, explained]
+      - id: expert_voiceover
+        label: 专家/旁白深度解读
+        keywords: [expert, historian, professor, documentary narrator]
+      - id: bilingual
+        label: 双语对照解释
+        keywords: [bilingual, english and chinese, 双语, translation]
+
+  interaction_design:
+    label: 互动设计
+    description: 创作者设置的互动与参与机制
+    type: multi_select
+    auto_codable: true
+    options:
+      - id: qa_prompt
+        label: 提问引导（评论区互动）
+        keywords: [comment below, what do you think, question, 评论]
+      - id: poll_challenge
+        label: 挑战/合拍/标签活动
+        keywords: ["challenge", "duet", "stitch", "#challenge"]
+      - id: tutorial_follow
+        label: 教程跟练
+        keywords: [tutorial, how to, step by step, try this]
+      - id: cta_follow
+        label: 关注订阅引导
+        keywords: [subscribe, follow, like and subscribe]
+      - id: passive
+        label: 无特殊互动设计
+        keywords: []
+
+  audience_feedback:
+    label: 受众反馈（机器预编码）
+    description: 基于评论情感的初步编码，需人工复核
+    type: composite
+    auto_codable: true
+    sub_dimensions:
+      sentiment:
+        label: 情感倾向
+        options: [positive, neutral, negative, mixed]
+      engagement_level:
+        label: 互动热度
+        options: [high, medium, low]
+        thresholds:
+          high: 1000
+          medium: 100
+      themes_in_comments:
+        label: 评论主题聚类
+        options:
+          - appreciation_aesthetic
+          - cultural_learning
+          - travel_intent
+          - stereotype_debate
+          - off_topic
+
+manual_review:
+  required_fields:
+    - theme
+    - publisher_type
+    - narrative_style
+  optional_override: all
+  export_format: csv
+  reviewer_columns:
+    - reviewer_id
+    - review_date
+    - confidence
+    - notes

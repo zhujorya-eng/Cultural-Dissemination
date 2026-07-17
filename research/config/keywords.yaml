@@ -1,0 +1,355 @@
+# 江苏文化海外传播 — 检索关键词表 v2.0
+# 组合策略：英文译名 + 拼音 + 主题标签 + 地名×主题交叉
+
+meta:
+  version: "2.0"
+  region: "Jiangsu, China"
+  purpose: "海外社交平台江苏文化公开作品检索"
+  last_updated: "2026-07-17"
+
+# ─────────────────────────────────────────────
+# 地理与文化主体
+# ─────────────────────────────────────────────
+geo_terms:
+  province:
+    english:
+      - Jiangsu
+      - Jiangsu province
+      - Jiangsu culture
+      - Jiangsu China
+      - Discover Jiangsu
+      - Beautiful Jiangsu
+      - Jiangsu travel
+    pinyin:
+      - Jiangsu
+      - Jiangsu sheng
+  regional:
+    english:
+      - Jiangnan
+      - Jiangnan culture
+      - Lower Yangtze
+      - Yangtze River Delta
+      - Wu culture
+      - Wu region China
+    pinyin:
+      - Jiangnan
+      - Wu culture
+  cities:
+    english:
+      - Nanjing
+      - Suzhou
+      - Wuxi
+      - Changzhou
+      - Xuzhou
+      - Nantong
+      - Yangzhou
+      - Zhenjiang
+      - Taizhou Jiangsu
+      - Yancheng
+      - Huai'an
+      - Suqian
+      - Lianyungang
+    pinyin:
+      - Nanjing
+      - Suzhou
+      - Wuxi
+      - Changzhou
+      - Xuzhou
+      - Nantong
+      - Yangzhou
+      - Zhenjiang
+      - Taizhou
+      - Yancheng
+      - Huaian
+      - Suqian
+      - Lianyungang
+  landmarks:
+    english:
+      - Humble Administrator Garden
+      - Lingering Garden
+      - Master of Nets Garden
+      - Tiger Hill Suzhou
+      - Zhouzhuang water town
+      - Tongli ancient town
+      - Wuzhen Jiangsu
+      - Ming Xiaoling Mausoleum
+      - Nanjing city wall
+      - Sun Yat-sen Mausoleum Nanjing
+      - Confucius Temple Nanjing
+      - Grand Canal Jiangsu
+      - Purple Mountain Nanjing
+      - Slender West Lake Yangzhou
+      - Turtle Head Isle Wuxi
+      - Jinji Lake Suzhou
+      - Pan Gate Suzhou
+    pinyin:
+      - Zhuozheng Yuan
+      - Liuyuan
+      - Wangshi Yuan
+      - Huqiu
+      - Zhouzhuang
+      - Tongli
+      - Zhongshan ling
+      - Fuzimiao
+      - Yunhe Jiangsu
+
+# ─────────────────────────────────────────────
+# 物质与非物质文化遗产主题
+# ─────────────────────────────────────────────
+theme_terms:
+  heritage_opera:
+    english:
+      - Kunqu opera
+      - Kun Opera
+      - Kunqu performance
+      - Peony Pavilion Kunqu
+      - Chinese opera Jiangsu
+      - Huai opera
+      - Huaiju
+      - Yang opera
+      - Suzhou pingtan
+      - Jiangsu folk opera
+      - intangible heritage opera China
+    pinyin:
+      - Kunqu
+      - Kun Qu
+      - Huaiju
+      - Yangju
+      - Pingtan
+      - Mudan Ting
+  heritage_craft:
+    english:
+      - Suzhou embroidery
+      - Su embroidery
+      - double-sided embroidery Suzhou
+      - Nanjing Yun brocade
+      - cloud brocade Nanjing
+      - Yixing teapot
+      - Zisha pottery
+      - purple clay teapot Yixing
+      - Taohuawu woodblock print
+      - Nanjing paper cutting
+      - Yangzhou lacquerware
+      - Changzhou comb
+      - velvet flower Nanjing
+      - Jiangsu silk
+    pinyin:
+      - Su Xiu
+      - Shuangmian Xiu
+      - Yun Jin
+      - Zisha
+      - Yixing
+      - Taohuawu
+      - Jinling jianzhi
+      - Yangzhou qiqi
+  architecture_garden:
+    english:
+      - Suzhou gardens
+      - classical Chinese garden
+      - UNESCO garden Suzhou
+      - Jiangnan garden
+      - Chinese garden design
+      - Suzhou garden tour
+      - ancient water town China
+      - Jiangsu ancient town
+    pinyin:
+      - Suzhou yuanlin
+      - Zhongguo yuanlin
+      - Jiangnan yuanlin
+  cuisine:
+    english:
+      - Jiangsu cuisine
+      - Huaiyang cuisine
+      - Su cuisine
+      - Huaiyang food
+      - Nanjing salted duck
+      - Jinling duck
+      - squirrel mandarin fish
+      - Wuxi spare ribs
+      - Yangzhou fried rice
+      - Jiangsu dim sum
+      - Chinese fine dining Jiangsu
+    pinyin:
+      - Huaiyang cai
+      - Su cai
+      - Jinling yanshui ya
+      - Songshu gui yu
+      - Yangzhou chaofan
+  tea_literature:
+    english:
+      - Biluochun tea
+      - Dongting Biluochun
+      - Suzhou tea culture
+      - Jiangsu tea
+      - Tang poetry Nanjing
+      - Jiangnan literature
+    pinyin:
+      - Biluochun
+      - Dongting Biluochun
+  festival_event:
+    english:
+      - Qinhuai lantern festival
+      - Nanjing lantern festival
+      - Suzhou silk festival
+      - Jiangsu intangible heritage festival
+      - Dragon boat Jiangsu
+    pinyin:
+      - Qinhuai huadeng
+      - Suzhou silu
+  contemporary:
+    english:
+      - Jiangsu travel vlog
+      - visit Jiangsu
+      - Jiangsu documentary
+      - Jiangsu vlog 2024
+      - Jiangsu vlog 2025
+      - explore Jiangsu
+      - Jiangsu tourism
+      - Jiangsu museum
+      - Nanjing museum
+      - Suzhou museum I.M. Pei
+    pinyin:
+      - Jiangsu lvyou
+      - Jiangsu wenlv
+
+# ─────────────────────────────────────────────
+# 平台主题标签
+# ─────────────────────────────────────────────
+hashtags:
+  primary:
+    - "#Jiangsu"
+    - "#JiangsuCulture"
+    - "#DiscoverJiangsu"
+    - "#VisitJiangsu"
+    - "#Jiangnan"
+    - "#JiangnanCulture"
+    - "#Suzhou"
+    - "#SuzhouChina"
+    - "#Nanjing"
+    - "#NanjingChina"
+    - "#Kunqu"
+    - "#KunquOpera"
+    - "#ChineseOpera"
+    - "#ChineseGarden"
+    - "#SuzhouGarden"
+    - "#ClassicalGarden"
+    - "#Huaiyang"
+    - "#HuaiyangCuisine"
+    - "#JiangsuCuisine"
+    - "#SuEmbroidery"
+    - "#YunBrocade"
+    - "#YixingTeapot"
+    - "#WaterTown"
+    - "#AncientTown"
+    - "#Zhouzhuang"
+    - "#Tongli"
+  secondary:
+    - "#ChineseCulture"
+    - "#IntangibleHeritage"
+    - "#UNESCO"
+    - "#TraditionalChinese"
+    - "#AncientChina"
+    - "#TravelChina"
+    - "#ChinaTravel"
+    - "#CulturalChina"
+    - "#HeritageChina"
+    - "#ChineseArt"
+    - "#ChineseFood"
+    - "#ChineseTea"
+    - "#SilkRoad"
+    - "#GrandCanal"
+
+# ─────────────────────────────────────────────
+# 精选检索查询（高优先级，直接用于采集）
+# ─────────────────────────────────────────────
+search_queries:
+  curated:
+    # 省级综合
+    - "Jiangsu culture documentary"
+    - "Jiangsu travel vlog"
+    - "Discover Jiangsu China"
+    - "Jiangsu intangible cultural heritage"
+    - "Jiangnan culture explained"
+    # 戏曲曲艺
+    - "Kunqu opera full performance"
+    - "Kunqu opera Peony Pavilion"
+    - "昆曲 Kunqu opera"
+    - "Kunqu UNESCO heritage"
+    - "Suzhou pingtan performance"
+    - "Huai opera Jiangsu"
+    # 园林古镇
+    - "Suzhou gardens UNESCO"
+    - "Humble Administrator Garden tour"
+    - "Lingering Garden Suzhou"
+    - "Zhouzhuang water town"
+    - "Tongli ancient town Jiangsu"
+    - "Jiangnan water town travel"
+    # 非遗工艺
+    - "Suzhou embroidery master"
+    - "Su embroidery double sided"
+    - "Nanjing Yun brocade weaving"
+    - "Yixing teapot making"
+    - "Zisha pottery artisan"
+  city_culture:
+    - "Nanjing history and culture"
+    - "Nanjing city wall walk"
+    - "Nanjing Confucius Temple night"
+    - "Sun Yat-sen Mausoleum Nanjing"
+    - "Suzhou museum I.M. Pei"
+    - "Suzhou ancient city tour"
+    - "Yangzhou Slender West Lake"
+    - "Wuxi Turtle Head Isle"
+    - "Grand Canal Jiangsu UNESCO"
+    # 美食
+    - "Huaiyang cuisine masterclass"
+    - "Nanjing salted duck recipe"
+    - "Jiangsu cuisine fine dining"
+    - "淮扬菜 Huaiyang food"
+    # 双语/混合检索
+    - "苏州 文化 travel"
+    - "南京 历史 documentary"
+    - "江苏 非遗 intangible heritage"
+    - "Jiangsu 昆曲 Kunqu"
+    # 标签组合
+    - "#Jiangsu #ChineseCulture"
+    - "#KunquOpera #UNESCO"
+    - "#SuzhouGarden #TravelChina"
+
+# 地名 × 主题 自动交叉组合模板
+cross_combinations:
+  cities_for_cross:
+    - Suzhou
+    - Nanjing
+    - Yangzhou
+    - Wuxi
+    - Zhouzhuang
+  themes_for_cross:
+    - culture
+    - travel
+    - food
+    - garden
+    - heritage
+    - documentary
+    - vlog
+
+# 同名词排除参考
+homonym_watchlist:
+  - term: "Nanjing"
+    false_positive_context:
+      - "Nanjing Road Shanghai"
+      - "Nanjing Road"
+  - term: "Suzhou"
+    false_positive_context:
+      - "Suzhou Industrial Park"
+      - "SIP Suzhou"
+  - term: "Jiangsu"
+    false_positive_context:
+      - "Jiangsu FC"
+      - "Jiangsu Suning"
+      - "CSL"
+  - term: "Taizhou"
+    false_positive_context:
+      - "Taizhou Zhejiang"
+  - term: "Yangzhou"
+    false_positive_context:
+      - "Yangzhou fried rice restaurant"  # 仅地名无文化时需结合判断

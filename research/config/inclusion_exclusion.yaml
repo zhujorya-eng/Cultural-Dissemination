@@ -1,0 +1,195 @@
+# 纳入与排除规则
+
+inclusion:
+  # 至少满足一条
+  any_of:
+  - id: geo_match
+    description: 标题/描述/标签中明确提及江苏或下辖地名
+    fields: [title, description, tags]
+    patterns:
+      - "jiangsu"
+      - "jiang nan"
+      - "jiangnan"
+      - "suzhou"
+      - "nanjing"
+      - "nanking"
+      - "wuxi"
+      - "changzhou"
+      - "xuzhou"
+      - "nantong"
+      - "yangzhou"
+      - "zhenjiang"
+      - "taizhou"
+      - "yancheng"
+      - "huai'an"
+      - "huaian"
+      - "suqian"
+      - "lianyungang"
+      - "zhouzhuang"
+      - "tongli"
+      - "江苏"
+      - "南京"
+      - "苏州"
+      - "无锡"
+      - "江南"
+
+  - id: theme_match
+    description: 江苏代表性文化主题（即使未点名省份，但属典型江苏文化符号）
+    fields: [title, description, tags]
+    patterns:
+      - "kunqu"
+      - "kun qu"
+      - "kun opera"
+      - "昆曲"
+      - "suzhou garden"
+      - "suzhou embroidery"
+      - "su embroidery"
+      - "苏绣"
+      - "苏州园林"
+      - "huaiyang"
+      - "淮扬"
+      - "yixing"
+      - "zisha"
+      - "宜兴"
+      - "yun brocade"
+      - "云锦"
+      - "huai opera"
+      - "yangs opera"
+      - "pingtan"
+      - "biluochun"
+      - "taohuawu"
+      - "grand canal"
+      - "qinhuai"
+      - "zhuozheng"
+      - "liuyuan"
+      - "huqiu"
+      - "tiger hill"
+      - "slender west lake"
+      - "yunjin"
+      - "velvet flower"
+      - "lacquerware"
+      - "淮剧"
+      - "评弹"
+      - "碧螺春"
+      - "桃花坞"
+      - "秦淮河"
+
+  - id: hashtag_match
+    description: 主题标签命中
+    fields: [tags]
+    patterns:
+      - "#jiangsu"
+      - "#jiangsuculture"
+      - "#discoverjiangsu"
+      - "#visitjiangsu"
+      - "#suzhougarden"
+      - "#kunqu"
+      - "#kunquopera"
+      - "#huaiyang"
+      - "#jiangsucuisine"
+      - "#suembroidery"
+      - "#yunbrocade"
+      - "#watertown"
+      - "#zhouzhuang"
+      - "#jiangnan"
+
+exclusion:
+  # 满足任一条即排除
+  any_of:
+  - id: advertisement
+    description: 商业广告、带货推广
+    patterns:
+      - "sponsored"
+      - "#ad"
+      - "#advertisement"
+      - "discount code"
+      - "use my code"
+      - "affiliate link"
+      - "buy now"
+      - "shop now"
+      - "limited offer"
+      - "优惠券"
+      - "带货"
+      - "广告"
+
+  - id: irrelevant_homonym
+    description: 同名词但非江苏文化语境
+    patterns:
+      - "jiangsu fc"
+      - "jiangsu suning"
+      - "suning fc"
+      - "csl football"
+      - "nanjing road shanghai"
+      - "shanghai nanjing road"
+      - "stock price"
+      - "earnings report"
+      - "taizhou zhejiang"
+      - "sip suzhou"
+
+  - id: unrelated_topic
+    description: 与文化传播无关的噪音
+    patterns:
+      - "minecraft"
+      - "fortnite"
+      - "crypto"
+      - "bitcoin"
+      - "forex"
+      - "casino"
+      - "betting"
+
+  - id: private_or_unavailable
+    description: 非公开或无法访问
+    patterns: []  # 由采集器状态码判定
+
+deduplication:
+  # 机器去重策略
+  primary_key: url
+  secondary_keys:
+    - platform_id
+  fuzzy_match:
+    enabled: true
+  # 标题相似度 > 0.92 且同一发布者视为重复
+    title_similarity_threshold: 0.92
+    same_uploader_required: true
+
+language:
+  # 保留可识别语种；无法识别则排除
+  allowed_languages:
+    - en
+    - zh
+    - zh-cn
+    - zh-tw
+    - ja
+    - ko
+    - fr
+    - de
+    - es
+    - ru
+    - pt
+    - it
+    - nl
+    - pl
+    - vi
+    - th
+    - id
+    - ms
+  min_confidence: 0.7
+  fallback_field: title  # 优先从标题检测，其次描述
+
+platforms:
+  youtube:
+    enabled: true
+    max_results_per_query: 15
+    fetch_comments: true
+    max_comments: 50
+    fetch_subtitles: true
+  tiktok:
+    enabled: true
+    max_results_per_query: 15
+    fetch_comments: true
+    max_comments: 30
+  instagram:
+    enabled: true
+    max_results_per_query: 12
+    fetch_comments: true
+    max_comments: 30
