@@ -1,3 +1,4 @@
 langdetect>=1.0.9
 PyYAML>=6.0.2
 yt-dlp>=2025.1.0
+python-dotenv>=1.0.0

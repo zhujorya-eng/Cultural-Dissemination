@@ -11,7 +11,8 @@ from .coders.auto_coder import auto_code_record
 from .collectors import InstagramCollector, TikTokCollector, YouTubeCollector
 from .collectors.demo_data import DemoCollector
 from .collectors.youtube_api import YouTubeApiCollector
-from .config_loader import build_search_queries, load_yaml
+from .config_loader import build_search_queries, load_yaml, query_stats
+from .env_loader import load_env
 from .models import CultureWorkRecord
 from .processors.deduplicator import deduplicate_records
 from .processors.filter import apply_inclusion_exclusion
@@ -20,20 +21,35 @@ from .processors.language import apply_language_filter
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 
 
-def _collector_for_platform(platform: str, cfg: dict[str, Any], *, demo: bool = False):
+def _collector_for_platform(
+    platform: str,
+    cfg: dict[str, Any],
+    *,
+    demo: bool = False,
+    youtube_api_key: str | None = None,
+    force_youtube_api: bool = False,
+):
     if demo:
         return DemoCollector(platform)
 
     pcfg = cfg.get("platforms", {}).get(platform, {})
+    import os as _os
+    max_results = int(_os.environ.get("YOUTUBE_MAX_RESULTS") or pcfg.get("max_results_per_query", 15))
     kwargs = {
-        "max_results": int(pcfg.get("max_results_per_query", 15)),
+        "max_results": max_results,
         "fetch_comments": bool(pcfg.get("fetch_comments", True)),
         "max_comments": int(pcfg.get("max_comments", 50)),
     }
     if platform == "youtube":
-        import os
-        if os.environ.get("YOUTUBE_API_KEY"):
-            return YouTubeApiCollector(**kwargs)
+        load_env()
+        from .env_loader import get_youtube_api_key
+
+        key = youtube_api_key or get_youtube_api_key()
+        if key or force_youtube_api:
+            if not key:
+                from .env_loader import require_youtube_api_key
+                key = require_youtube_api_key()
+            return YouTubeApiCollector(api_key=key, **kwargs)
         return YouTubeCollector(**kwargs)
     if platform == "tiktok":
         return TikTokCollector(**kwargs)
@@ -49,7 +65,10 @@ def run_pipeline(
     max_queries: int | None = None,
     output_dir: Path | None = None,
     demo: bool = False,
+    youtube_api_key: str | None = None,
+    force_youtube_api: bool = False,
 ) -> dict[str, Any]:
+    load_env()
     rules = load_yaml("inclusion_exclusion.yaml")
     schema = load_yaml("coding_schema.yaml")
     search_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -68,7 +87,13 @@ def run_pipeline(
     for platform in platforms:
         if not rules.get("platforms", {}).get(platform, {}).get("enabled"):
             continue
-        collector = _collector_for_platform(platform, rules, demo=demo)
+        collector = _collector_for_platform(
+            platform,
+            rules,
+            demo=demo,
+            youtube_api_key=youtube_api_key,
+            force_youtube_api=force_youtube_api,
+        )
         for query in queries:
             search_log.append({
                 "search_date": search_date,
@@ -128,6 +153,8 @@ def run_pipeline(
 
     return {
         "search_date": search_date,
+        "queries_used": len(queries),
+        "query_stats": query_stats(),
         "total_collected": len(all_records),
         "included": len(included),
         "excluded": len(excluded),

@@ -55,6 +55,24 @@ inclusion:
       - "云锦"
       - "huai opera"
       - "yangs opera"
+      - "pingtan"
+      - "biluochun"
+      - "taohuawu"
+      - "grand canal"
+      - "qinhuai"
+      - "zhuozheng"
+      - "liuyuan"
+      - "huqiu"
+      - "tiger hill"
+      - "slender west lake"
+      - "yunjin"
+      - "velvet flower"
+      - "lacquerware"
+      - "淮剧"
+      - "评弹"
+      - "碧螺春"
+      - "桃花坞"
+      - "秦淮河"
 
   - id: hashtag_match
     description: 主题标签命中
@@ -66,6 +84,14 @@ inclusion:
       - "#visitjiangsu"
       - "#suzhougarden"
       - "#kunqu"
+      - "#kunquopera"
+      - "#huaiyang"
+      - "#jiangsucuisine"
+      - "#suembroidery"
+      - "#yunbrocade"
+      - "#watertown"
+      - "#zhouzhuang"
+      - "#jiangnan"
 
 exclusion:
   # 满足任一条即排除
@@ -97,6 +123,8 @@ exclusion:
       - "shanghai nanjing road"
       - "stock price"
       - "earnings report"
+      - "taizhou zhejiang"
+      - "sip suzhou"
 
   - id: unrelated_topic
     description: 与文化传播无关的噪音

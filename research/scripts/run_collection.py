@@ -46,6 +46,15 @@ def main() -> None:
         action="store_true",
         help="使用内置样本数据（无需网络，验证流水线）",
     )
+    parser.add_argument(
+        "--api-key",
+        help="YouTube Data API v3 密钥（真实采集 YouTube 时推荐）",
+    )
+    parser.add_argument(
+        "--force-youtube-api",
+        action="store_true",
+        help="强制使用 YouTube API（无 Key 时报错）",
+    )
     args = parser.parse_args()
 
     print("=" * 60)
@@ -61,6 +70,8 @@ def main() -> None:
         max_queries=None if args.queries else args.max_queries,
         output_dir=args.output_dir,
         demo=args.demo,
+        youtube_api_key=args.api_key,
+        force_youtube_api=args.force_youtube_api,
     )
 
     print(json.dumps(result, ensure_ascii=False, indent=2))

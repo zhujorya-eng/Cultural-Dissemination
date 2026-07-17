@@ -8,6 +8,7 @@ dist
 research/data/*.json
 research/data/*.csv
 !research/data/.gitkeep
+research/.env
 
 # Python
 __pycache__/
