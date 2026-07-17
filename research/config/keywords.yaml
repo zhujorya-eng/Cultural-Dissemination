@@ -1,0 +1,148 @@
+# 江苏文化海外传播 — 检索关键词表
+# 组合策略：英文译名 + 拼音 + 主题标签（#hashtag）
+
+meta:
+  version: "1.0"
+  region: "Jiangsu, China"
+  purpose: "海外社交平台江苏文化公开作品检索"
+
+# 地理与文化主体
+geo_terms:
+  english:
+    - Jiangsu
+    - Jiangsu province
+    - Jiangsu culture
+    - Jiangnan
+    - Lower Yangtze
+    - Yangtze River Delta
+  pinyin:
+    - Jiangsu
+    - Jiangnan
+    - Suzhou
+    - Nanjing
+    - Wuxi
+    - Changzhou
+    - Xuzhou
+    - Nantong
+    - Yangzhou
+    - Zhenjiang
+    - Taizhou
+    - Yancheng
+    - Huai'an
+    - Suqian
+    - Lianyungang
+
+# 物质与非物质文化遗产主题
+theme_terms:
+  heritage:
+    english:
+      - Kunqu opera
+      - Kun Opera
+      - Chinese opera Jiangsu
+      - Suzhou embroidery
+      - Su embroidery
+      - Yixing teapot
+      - Zisha pottery
+      - Nanjing Yun brocade
+      - Cloud brocade
+      - Jiangsu folk song
+      - Huai opera
+      - Yang opera
+    pinyin:
+      - Kunqu
+      - Kun Qu
+      - Su Xiu
+      - Yun Jin
+      - Zisha
+      - Yixing
+  architecture_garden:
+    english:
+      - Suzhou gardens
+      - classical Chinese garden
+      - Humble Administrator Garden
+      - Lingering Garden
+      - Ming Xiaoling
+      - Nanjing city wall
+      - Zhouzhuang water town
+      - Tongli ancient town
+    pinyin:
+      - Suzhou yuanlin
+      - Zhuozheng Yuan
+      - Liuyuan
+  cuisine:
+    english:
+      - Jiangsu cuisine
+      - Huaiyang cuisine
+      - Su cuisine
+      - Nanjing duck
+      - squirrel fish Jiangsu
+    pinyin:
+      - Huaiyang cai
+      - Jinling yaoshan
+  contemporary:
+    english:
+      - Jiangsu travel
+      - visit Jiangsu
+      - Jiangsu vlog
+      - Jiangsu documentary
+      - Discover Jiangsu
+      - Beautiful Jiangsu
+
+# 平台主题标签（Instagram / TikTok）
+hashtags:
+  primary:
+    - "#Jiangsu"
+    - "#JiangsuCulture"
+    - "#DiscoverJiangsu"
+    - "#VisitJiangsu"
+    - "#Jiangnan"
+    - "#Suzhou"
+    - "#Nanjing"
+    - "#Kunqu"
+    - "#KunquOpera"
+    - "#ChineseGarden"
+    - "#SuzhouGarden"
+    - "#Huaiyang"
+    - "#JiangsuCuisine"
+  secondary:
+    - "#ChineseCulture"
+    - "#IntangibleHeritage"
+    - "#UNESCO"
+    - "#TraditionalChinese"
+    - "#WaterTown"
+    - "#AncientChina"
+    - "#TravelChina"
+
+# 检索查询组合（自动生成 + 手工精选）
+search_queries:
+  # 精选高优先级组合
+  curated:
+    - "Jiangsu culture"
+    - "Jiangsu travel vlog"
+    - "Suzhou gardens documentary"
+    - "Kunqu opera performance"
+    - "Nanjing history culture"
+    - "Huaiyang cuisine cooking"
+    - "Jiangnan water town"
+    - "Jiangsu intangible heritage"
+    - "苏州 文化"  # 部分创作者双语标题
+    - "昆曲 Kunqu"
+    - "Jiangsu China travel"
+    - "#Jiangsu #culture"
+    - "Zhouzhuang ancient town"
+    - "Yixing teapot making"
+    - "Nanjing Yun brocade"
+
+# 同名词排除参考（见 inclusion_exclusion.yaml 执行）
+homonym_watchlist:
+  - term: "Nanjing"
+    false_positive_context:
+      - "Nanjing Road Shanghai"  # 非江苏南京语境
+      - "Nanjing University"    # 需结合文化内容判断
+  - term: "Suzhou"
+    false_positive_context:
+      - "Suzhou Industrial Park" # 纯商务无关
+  - term: "Jiangsu"
+    false_positive_context:
+      - "Jiangsu FC"            # 足球俱乐部赛事
+      - "Jiangsu Suning"        # 企业/球队
